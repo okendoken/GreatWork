@@ -2,6 +2,9 @@ class PostsController < ApplicationController
   #http_basic_authenticate_with :name => "dhh", :password => "secret", :except => [:index, :show]
   # GET /posts
   # GET /posts.xml
+
+  before_filter :authenticate_user!
+
   def index
     @posts = Post.all
 
