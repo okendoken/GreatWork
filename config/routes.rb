@@ -5,6 +5,8 @@ GreatWork::Application.routes.draw do
     resources :comments
   end
 
+  resources :answers
+
   get "home/index"
 
   # The priority is based upon order of creation:
