@@ -1,4 +1,6 @@
 GreatWork::Application.routes.draw do
+  get "user/index"
+
   devise_for :users
 
   resources :posts do
@@ -8,6 +10,8 @@ GreatWork::Application.routes.draw do
   resources :answers
 
   get "home/index"
+
+  match 'users/:id' => 'user#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

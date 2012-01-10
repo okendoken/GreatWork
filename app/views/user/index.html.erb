@@ -1,0 +1,13 @@
+Hallo!
+
+<%= @user.successful? %>
+<br/>
+<%= @user.email %>
+<table>
+  <% @user.answers.each do |answer| %>
+      <tr>
+        <td><%= answer.answerText %></td>
+        <td><%= answer.id %></td>
+      </tr>
+  <% end %>
+</table>

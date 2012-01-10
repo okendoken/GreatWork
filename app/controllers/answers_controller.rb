@@ -1,5 +1,7 @@
 class AnswersController < ApplicationController
 
+  before_filter :authenticate_user!
+
   def index
     @answers = Answer.all
     @questions = ["What are your talents",
@@ -14,13 +16,12 @@ class AnswersController < ApplicationController
 
   def create
     @saved = true
-    #answer = Answer.new
-    #answer.questionId=1
-    #answer.answerText=params[:q1]
-    #current_user.answers.create answer
-    #create new user here. set questions and answers
+    answer = Answer.new
+    answer.questionId=0
+    answer.answerText=params[:q1]
+    current_user.answers << answer
     respond_to do |format|
-        format.html { render :action => "create" }
+        format.html { redirect_to :controller => 'user', :notice => 'Post was successfully created.'}
         format.xml  { render :xml => 'ok'}
     end
   end
