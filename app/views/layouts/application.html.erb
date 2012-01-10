@@ -10,6 +10,9 @@
 
  <p class="notice"><%= notice %></p>
  <p class="alert"><%= alert %></p>
+ <div style="float: right;">
+   <%= user_signed_in? ? 'Hello ' + current_user.email : 'You are not logged in' %>
+ </div>
 
 <%= yield %>
 
