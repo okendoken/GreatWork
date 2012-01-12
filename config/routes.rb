@@ -9,9 +9,9 @@ GreatWork::Application.routes.draw do
 
   resources :answers
 
-  get "home/index"
+  resources :user
 
-  match 'users/:id' => 'user#index'
+  get "home/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

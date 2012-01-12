@@ -1,13 +1,9 @@
-Hallo!
-
-<%= @user.successful? %>
-<br/>
-<%= @user.email %>
+This is the page of  <%= @user.email %>
 <table>
   <% @user.answers.each do |answer| %>
       <tr>
+        <td><%= answer.question %></td>
         <td><%= answer.answerText %></td>
-        <td><%= answer.id %></td>
       </tr>
   <% end %>
 </table>

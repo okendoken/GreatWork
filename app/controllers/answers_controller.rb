@@ -17,11 +17,10 @@ class AnswersController < ApplicationController
   def create
     @saved = true
     answer = Answer.new
-    answer.questionId=0
-    answer.answerText=params[:q1]
+    answer.answerText = params[:q1]
     current_user.answers << answer
     respond_to do |format|
-        format.html { redirect_to :controller => 'user', :notice => 'Post was successfully created.'}
+        format.html { redirect_to (current_user)}
         format.xml  { render :xml => 'ok'}
     end
   end
