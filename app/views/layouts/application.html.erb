@@ -57,6 +57,7 @@
 <p class="alert"><%= alert %></p>
 <div style="float: right;">
   <%= user_signed_in? ? 'Hello ' + current_user.email : 'You are not logged in' %>
+  <br/><%= link_to 'Log out', destroy_user_session_path, :confirm => 'Are you sure?', :method => :delete %>
 </div>
 
 <%= yield %>
