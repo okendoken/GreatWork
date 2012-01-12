@@ -4,9 +4,7 @@ class AnswersController < ApplicationController
 
   def index
     @answers = Answer.all
-    @questions = ["What are your talents",
-               "What excites you?",
-               "What do you read about?"]
+    @questions = Question.all
     @saved = false
     respond_to do |format|
       format.html # index.html.erb
@@ -16,9 +14,11 @@ class AnswersController < ApplicationController
 
   def create
     @saved = true
-    answer = Answer.new
-    answer.answerText = params[:q1]
-    current_user.answers << answer
+    current_user.successful = params[:a] == 'yes'
+    current_user.answers.create :answerText => params[:q1], :question_id => 1
+    current_user.answers.create :answerText => params[:q2], :question_id => 2
+    current_user.answers.create :answerText => params[:q3], :question_id => 3
+    current_user.save
     respond_to do |format|
         format.html { redirect_to (current_user)}
         format.xml  { render :xml => 'ok'}

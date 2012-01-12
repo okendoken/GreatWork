@@ -1,8 +1,8 @@
-This is the page of  <%= @user.email %>
+This is the page of  <%= @user.successful? ? 'successful' : ''%> <%= @user.email %>
 <table>
   <% @user.answers.each do |answer| %>
       <tr>
-        <td><%= answer.question %></td>
+        <td><h3><%=answer.question.questionText %></h3></td>
         <td><%= answer.answerText %></td>
       </tr>
   <% end %>
