@@ -5,62 +5,40 @@
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :all %>
   <%= csrf_meta_tag %>
-  <style>
-      #header {
-          background-attachment: scroll;
-          background-color: rgb(89, 162, 223);
-          background-image: none;
-          background-position: 0% 0%;
-          background-repeat: repeat;
-          background-size: auto;
-          border-bottom-color: rgb(29, 62, 115);
-          border-bottom-style: solid;
-          border-bottom-width: 1px;
-          box-shadow: inset 0px -1px 0px rgb(115, 150, 194);
-          height: 58px;
-          margin-bottom: 0px;
-          margin-left: 0px;
-          margin-right: 0px;
-          margin-top: 0px;
-          padding-bottom: 0px;
-          padding-left: 0px;
-          padding-right: 0px;
-          padding-top: 1px;
-          width: 100%;
-      }
-      #header {
-          margin-bottom: 25px;
-          margin-left: 0px;
-          margin-right: 0px;
-          margin-top: 0px;
-          position: relative;
-          z-index: 9000;
-      }
-      .center-box {
-          padding-bottom: 1px;
-          padding-left: 0px;
-          padding-right: 0px;
-          padding-top: 1px;
-          width: 960px;
-          display: block;
-      }
-  </style>
+  <%= stylesheet_link_tag "/stylesheets/main.css" %>
 </head>
-<body style="background: #fefeff">
-<div id="header">
-  <div class="center-box">
-    <a href="/" id="logo"><img alt="CarWoo!" src="/images/rails.png" /></a>
-  </div>
+<body>
+<div class="nav">
+  <ul>
+    <li class="date">
+      <script type="text/javascript">
+          <!--
+          // Array of day names
+          var dayNames = new Array("Sunday","Monday","Tuesday","Wednesday",
+                  "Thursday","Friday","Saturday");
+          var now = new Date();
+          document.write("Happy " + dayNames[now.getDay()] + ".");
+          // -->
+      </script>
+    </li>
+    <li style="float: left;"><a href="/">Home</a></li>
+    <li><%= user_signed_in? ? 'Hello ' + current_user.email : 'You are not logged in' %></li>
+    <li><%= link_to 'Another coole projecte', 'http://cheerick.ru' %></li>
+    <% if user_signed_in? %>
+        <li><%= link_to 'Sign out', destroy_user_session_path, :confirm => 'Are you sure?', :method => :delete %></li>
+    <% else %>
+        <li><%= link_to 'Sign In', new_user_session_path %></li>
+        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+    <% end %>
+    <li class="logo"><a href="/"><img src="/images/rails.png" class="logo" alt="gw" /></a></li>
+  </ul>
 </div>
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-<div style="float: right;">
-  <%= user_signed_in? ? 'Hello ' + current_user.email : 'You are not logged in' %>
-  <br/><%= link_to 'Log out', destroy_user_session_path, :confirm => 'Are you sure?', :method => :delete %>
+
+<div class="container">
+  <%= yield %>
 </div>
-
-<%= yield %>
-
 </body>
 </html>
