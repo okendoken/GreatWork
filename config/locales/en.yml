@@ -2,7 +2,9 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  hello: "Hello!"
   this_is_your_page: "This is your page"
   this_is_the_page_of: "This is the page of"
   successful: "successful"
+  this_is_your_new_page: "This is your new page"
+  tell_story: "Tell your story!"

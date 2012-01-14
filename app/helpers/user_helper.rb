@@ -10,4 +10,13 @@ module UserHelper
       current_user.successful?
     end ? 'Y' : 'N'
   end
+
+  def get_answer_by_question(question)
+    current_user.answers.select {|answer| answer.question == question}[0]
+  end
+
+  def get_answer_text_by_question(question)
+    answer = get_answer_by_question(question)
+    answer.nil? ? '' : answer.answerText
+  end
 end

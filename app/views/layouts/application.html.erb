@@ -25,7 +25,7 @@
     <li><%= user_signed_in? ? 'Hello ' + current_user.email : 'You are not logged in' %></li>
     <li><%= link_to 'Another coole projecte', 'http://cheerick.ru' %></li>
     <% if user_signed_in? %>
-        <li><%= link_to 'Sign out', destroy_user_session_path, :confirm => 'Are you sure?', :method => :delete %></li>
+        <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
     <% else %>
         <li><%= link_to 'Sign In', new_user_session_path %></li>
         <li><%= link_to 'Sign Up', new_user_registration_path %></li>

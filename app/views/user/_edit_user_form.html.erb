@@ -1,13 +1,13 @@
 <%= form_tag({:controller => "user", :action => edit ? "update" : "create"}, :method => edit ? "put" : "post") do %>
 
     <% all_questions.each do |question| %>
-        <div class="field">
+        <div class="field answer-field">
           <%= label_tag("q" + question.id.to_s, question.questionText) %><br />
-          <%= text_area_tag("q" + question.id.to_s)%>
+          <%= text_area_tag("q" + question.id.to_s, get_answer_text_by_question(question))%>
         </div>
     <% end %>
     <div class="actions">
-      <%= submit_tag("Save") %>
+      <%= submit_tag "Save", :class => 'cool-button' %>
     </div>
     <%= hidden_field_tag(:a, is_current_user_successful?) %>
 <% end %>
