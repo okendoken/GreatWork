@@ -1,0 +1,6 @@
+<h1>You are <%= is_current_user_successful? %> person (change this)</h1>
+<h2>Please answer the questions listed below</h2>
+
+
+
+<%= render :template => 'user/_edit_user_form', :locals => {:edit => true} %>

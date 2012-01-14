@@ -72,3 +72,19 @@ body{
 .question a:visited {
     /*color:#6495ed;*/
 }
+
+.question{
+    font-family: "Lucida Grande", "Lucida Sans Unicode", "Verdana", sans-serif;
+    text-decoration: underline;
+}
+
+.profile{
+    text-align: left;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.edit-link{
+    text-align: right;
+}
